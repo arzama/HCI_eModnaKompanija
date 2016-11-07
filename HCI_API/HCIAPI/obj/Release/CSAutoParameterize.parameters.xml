@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="ConnectionString-Web.config Connection String" description="ConnectionString Connection String used in web.config by the application to access the database." defaultValue="Data Source=hci106.app.fit.ba,1434;Initial Catalog=hci106_ModnaKompanija;User ID=hci106;Password=iCti@662" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Arza\\Desktop\\ProfesorU-hci\\HCI_API\\HCIAPI\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ConnectionString']/@connectionString" />
+  </parameter>
+</parameters>

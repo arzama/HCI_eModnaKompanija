@@ -1,0 +1,97 @@
+﻿using ModnaKompanija_API.DAL;
+using ModnaKompanija_API.Models;
+using System;
+
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
+
+namespace ModnaKompanija_API.Controllers
+{
+    public class VrsteProizvodaController : ApiController
+    {
+        public class ProizvodiVM
+        {
+            public List<proizvodi> _Proizvodi { get; set; }
+
+            public class proizvodi
+            {
+                public int Id { get; set; }
+                public string NazivProizvoda { get; set; }
+                public int VrstaProizvodaId { get; set; }
+                public string Kolekcija { get; set; }
+                public decimal Cijena { get; set; }
+                public string OpisProizvoda { get; set; }
+            }
+
+        }
+        public class pomVM
+        {
+            public int Id { get; set; }
+            public string NazivProizvoda { get; set; }
+            public int VrstaProizvodaId { get; set; }
+           
+            public decimal Cijena { get; set; }
+            public string Kolekcija { get; set; }
+            public string OpisProizvoda { get; set; }
+        }
+        public class VrsteProizvodaVM
+        {
+
+            public List<Vrste> _VrsteProizvoda { get; set; }
+
+            public class Vrste
+            {
+                public int Id { get; set; }
+                public string NazivVrste { get; set; }
+            }
+        }
+
+        Context ctx = new Context();
+        public VrsteProizvodaVM Get()
+        {
+
+            VrsteProizvodaVM vrste = ctx.VrstaProizvoda.Select(x => new VrsteProizvodaVM
+            {
+                _VrsteProizvoda = ctx.VrstaProizvoda.Select(v => new VrsteProizvodaVM.Vrste
+                {
+                    Id = v.Id,
+                    NazivVrste = v.NazivVrste
+                }).ToList()
+            }).First();
+
+            return vrste;
+        }
+        [HttpGet]
+        [Route("api/VrsteProizvoda/ProizvodiByVrsta/{vrsta}")]
+        public ProizvodiVM ProizvodiByVrsta(string vrsta)
+        {
+
+            List<pomVM> listaPom = ctx.Proizvodi.Where(x => x.VrstaProizvoda.NazivVrste == vrsta).Select(x => new pomVM
+            {
+                Id = x.Id,
+                Cijena = x.Cijena,
+                NazivProizvoda = x.NazivProizvoda,
+                OpisProizvoda = x.OpisProizvoda,
+                 Kolekcija=x.Kolekcija,
+                VrstaProizvodaId = x.VrstaProizvodaId
+            }).ToList();
+
+
+            ProizvodiVM pom = new ProizvodiVM();
+            pom._Proizvodi = listaPom.Select(p => new ProizvodiVM.proizvodi
+            {
+                Id = p.Id,
+                Cijena = p.Cijena,
+                NazivProizvoda = p.NazivProizvoda,
+                OpisProizvoda = p.OpisProizvoda,
+                
+                VrstaProizvodaId = p.VrstaProizvodaId
+            }).ToList();
+
+            return pom;
+        }
+    }
+}

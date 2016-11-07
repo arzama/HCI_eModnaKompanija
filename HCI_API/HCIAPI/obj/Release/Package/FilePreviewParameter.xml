@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="hci106.app.fit.ba" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Arza\\Desktop\\HCI-MOJA\\HCIAPI\\HCIAPI\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\Arza\\Desktop\\HCI-MOJA\\HCIAPI\\HCIAPI\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="ConnectionString-Web.config Connection String" description="" value="Data Source=hci106.app.fit.ba,1434;Initial Catalog=hci106_NovaMK;User ID=hci106_novi;Password=hci106*MK" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Arza\\Desktop\\HCI-MOJA\\HCIAPI\\HCIAPI\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ConnectionString']/@connectionString" />
+  </parameter>
+</parameters>

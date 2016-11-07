@@ -1,0 +1,22 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace ModnaKompanija_API.Models
+{
+    public class Proizvodi
+    {
+        public int Id { get; set; }
+
+        public string NazivProizvoda { get; set; }
+        public VrstaProizvoda VrstaProizvoda { get; set; }
+        public int VrstaProizvodaId { get; set; }
+        
+        public decimal Cijena { get; set; }
+
+        public string OpisProizvoda { get; set; }
+        public string Kolekcija { get; set; }
+     
+    }
+}

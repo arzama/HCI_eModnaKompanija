@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:padding="10dp">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtnIme"
+        android:paddingTop="30dp"
+        android:hint="Ime" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:id="@+id/txtnPrezime"
+        android:hint="Prezime" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:id="@+id/txtnEmail"
+        android:hint="E-mail" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:id="@+id/txtnAdresa"
+        android:hint="Adresa" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:id="@+id/txtnKontakt"
+        android:hint="Kontakt" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="30dp"
+        android:id="@+id/txtnKorisnickoIme"
+        android:hint="Korisnicko ime" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:inputType="textPassword"
+        android:id="@+id/txtnLozinka"
+        android:hint="Lozinka"  />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:text="Registruj se" android:id="@+id/btnRegistrujSe" />
+</LinearLayout>

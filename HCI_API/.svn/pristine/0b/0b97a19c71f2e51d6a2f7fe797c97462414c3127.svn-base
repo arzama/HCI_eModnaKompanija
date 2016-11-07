@@ -1,0 +1,115 @@
+namespace ModnaKompanija_API.Migrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+    
+    public partial class Nesto : DbMigration
+    {
+        public override void Up()
+        {
+            DropForeignKey("dbo.NarudzbaStavkes", "ProizvodiId", "dbo.Proizvodis");
+            DropForeignKey("dbo.Ocjenas", "Korisnici_Id", "dbo.Korisnicis");
+            DropForeignKey("dbo.Ocjenas", "ProizvodiId", "dbo.Proizvodis");
+            DropForeignKey("dbo.Proizvodis", "VrstaProizvoda_Id", "dbo.VrstaProizvodas");
+            DropIndex("dbo.NarudzbaStavkes", new[] { "ProizvodiId" });
+            DropIndex("dbo.Proizvodis", new[] { "VrstaProizvoda_Id" });
+            DropIndex("dbo.Ocjenas", new[] { "ProizvodiId" });
+            DropIndex("dbo.Ocjenas", new[] { "Korisnici_Id" });
+            RenameColumn(table: "dbo.Proizvodis", name: "VrstaProizvoda_Id", newName: "VrstaProizvodaId");
+            RenameColumn(table: "dbo.Narudzbas", name: "KorisniciId", newName: "KorisnikId");
+            RenameIndex(table: "dbo.Narudzbas", name: "IX_KorisniciId", newName: "IX_KorisnikId");
+            CreateTable(
+                "dbo.Ocjenes",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Ocjena = c.Double(nullable: false),
+                        ProizvodId = c.Int(nullable: false),
+                        KorisnikId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Korisnicis", t => t.KorisnikId, cascadeDelete: true)
+                .ForeignKey("dbo.Proizvodis", t => t.ProizvodId, cascadeDelete: true)
+                .Index(t => t.ProizvodId)
+                .Index(t => t.KorisnikId);
+            
+            AddColumn("dbo.Korisnicis", "Email", c => c.String());
+            AddColumn("dbo.NarudzbaStavkes", "ProizvodId", c => c.Int(nullable: false));
+            AddColumn("dbo.Narudzbas", "BrojNarudzbe", c => c.Int(nullable: false));
+            AddColumn("dbo.Narudzbas", "Datum", c => c.DateTime(nullable: false));
+            AddColumn("dbo.Narudzbas", "Iznos", c => c.Decimal(nullable: false, precision: 18, scale: 2));
+            AddColumn("dbo.Narudzbas", "Potvrdjena", c => c.Boolean());
+            AddColumn("dbo.Proizvodis", "NazivProizvoda", c => c.String());
+            AddColumn("dbo.Proizvodis", "Proizvodjac", c => c.String());
+            AddColumn("dbo.Proizvodis", "Cijena", c => c.Decimal(nullable: false, precision: 18, scale: 2));
+            AddColumn("dbo.Proizvodis", "OpisProizvoda", c => c.String());
+            AddColumn("dbo.Proizvodis", "Kolekcija", c => c.String());
+            AddColumn("dbo.Proizvodis", "DatumProizvodnje", c => c.DateTime(nullable: false));
+            AddColumn("dbo.VrstaProizvodas", "NazivVrste", c => c.String());
+            AlterColumn("dbo.Proizvodis", "VrstaProizvodaId", c => c.Int(nullable: false));
+            CreateIndex("dbo.Proizvodis", "VrstaProizvodaId");
+            AddForeignKey("dbo.Proizvodis", "VrstaProizvodaId", "dbo.VrstaProizvodas", "Id", cascadeDelete: true);
+            DropColumn("dbo.NarudzbaStavkes", "ProizvodiId");
+            DropColumn("dbo.Proizvodis", "VrstaId");
+            DropTable("dbo.Ocjenas");
+            DropTable("dbo.Proizvodjacis");
+        }
+        
+        public override void Down()
+        {
+            CreateTable(
+                "dbo.Proizvodjacis",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.Ocjenas",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        KorisnikId = c.Int(nullable: false),
+                        ProizvodiId = c.Int(nullable: false),
+                        Korisnici_Id = c.Int(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            AddColumn("dbo.Proizvodis", "VrstaId", c => c.Int(nullable: false));
+            AddColumn("dbo.NarudzbaStavkes", "ProizvodiId", c => c.Int(nullable: false));
+            DropForeignKey("dbo.Proizvodis", "VrstaProizvodaId", "dbo.VrstaProizvodas");
+            DropForeignKey("dbo.Ocjenes", "ProizvodId", "dbo.Proizvodis");
+            DropForeignKey("dbo.Ocjenes", "KorisnikId", "dbo.Korisnicis");
+            DropIndex("dbo.Proizvodis", new[] { "VrstaProizvodaId" });
+            DropIndex("dbo.Ocjenes", new[] { "KorisnikId" });
+            DropIndex("dbo.Ocjenes", new[] { "ProizvodId" });
+            AlterColumn("dbo.Proizvodis", "VrstaProizvodaId", c => c.Int());
+            DropColumn("dbo.VrstaProizvodas", "NazivVrste");
+            DropColumn("dbo.Proizvodis", "DatumProizvodnje");
+            DropColumn("dbo.Proizvodis", "Kolekcija");
+            DropColumn("dbo.Proizvodis", "OpisProizvoda");
+            DropColumn("dbo.Proizvodis", "Cijena");
+            DropColumn("dbo.Proizvodis", "Proizvodjac");
+            DropColumn("dbo.Proizvodis", "NazivProizvoda");
+            DropColumn("dbo.Narudzbas", "Potvrdjena");
+            DropColumn("dbo.Narudzbas", "Iznos");
+            DropColumn("dbo.Narudzbas", "Datum");
+            DropColumn("dbo.Narudzbas", "BrojNarudzbe");
+            DropColumn("dbo.NarudzbaStavkes", "ProizvodId");
+            DropColumn("dbo.Korisnicis", "Email");
+            DropTable("dbo.Ocjenes");
+            RenameIndex(table: "dbo.Narudzbas", name: "IX_KorisnikId", newName: "IX_KorisniciId");
+            RenameColumn(table: "dbo.Narudzbas", name: "KorisnikId", newName: "KorisniciId");
+            RenameColumn(table: "dbo.Proizvodis", name: "VrstaProizvodaId", newName: "VrstaProizvoda_Id");
+            CreateIndex("dbo.Ocjenas", "Korisnici_Id");
+            CreateIndex("dbo.Ocjenas", "ProizvodiId");
+            CreateIndex("dbo.Proizvodis", "VrstaProizvoda_Id");
+            CreateIndex("dbo.NarudzbaStavkes", "ProizvodiId");
+            AddForeignKey("dbo.Proizvodis", "VrstaProizvoda_Id", "dbo.VrstaProizvodas", "Id");
+            AddForeignKey("dbo.Ocjenas", "ProizvodiId", "dbo.Proizvodis", "Id", cascadeDelete: true);
+            AddForeignKey("dbo.Ocjenas", "Korisnici_Id", "dbo.Korisnicis", "Id");
+            AddForeignKey("dbo.NarudzbaStavkes", "ProizvodiId", "dbo.Proizvodis", "Id", cascadeDelete: true);
+        }
+    }
+}

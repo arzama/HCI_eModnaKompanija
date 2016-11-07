@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:padding="8dp">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:id="@+id/naslov"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"  android:textSize="30dp" android:text="Korisnicki podaci"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="65dp"
+
+        android:id="@+id/profil_imetxt" android:text="Ime " android:textSize="17dp"
+        android:layout_alignTop="@+id/naslov"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignBaseline="@+id/profil_imetxt"
+        android:text="arza"
+        android:ems="8"
+        android:id="@+id/profil_ime"
+        android:textSize="17dp"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/profil_prezime"
+        android:layout_alignStart="@+id/profil_prezime" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/profil_prezimetxt"
+        android:text="Prezime "
+        android:paddingTop="20dp"
+        android:textSize="17dp"
+        android:layout_below="@+id/profil_imetxt"/>
+    <EditText
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="17dp"
+        android:ems="8"
+        android:layout_alignParentRight="true"
+        android:id="@+id/profil_prezime"
+        android:layout_alignBaseline="@+id/profil_prezimetxt"
+        android:text="malkic" android:layout_centerInParent="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/profil_adresatxt"
+        android:text="Adresa "
+        android:paddingTop="20dp"
+        android:textSize="17dp"
+        android:layout_below="@+id/profil_prezimetxt"/>
+    <EditText
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="17dp"
+        android:ems="8"
+        android:layout_alignParentRight="true"
+        android:id="@+id/profil_adresa"
+        android:layout_alignBaseline="@+id/profil_adresatxt"
+        android:text="Bugojno" android:layout_centerInParent="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profil_adresatxt"
+        android:id="@+id/profil_emailtxt"
+        android:paddingTop="20dp"
+        android:text="Email "
+        android:textSize="17dp"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="17dp"
+        android:ems="8"
+        android:layout_alignBaseline="@+id/profil_emailtxt"
+        android:layout_alignParentRight="true"
+        android:id="@+id/profil_email"
+        android:text="email" android:layout_centerInParent="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profil_emailtxt"
+        android:id="@+id/profil_kontakttxt"
+        android:paddingTop="20dp"
+        android:text="Kontakt "
+        android:textSize="17dp"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="17dp"
+        android:ems="8"
+        android:layout_alignBaseline="@+id/profil_kontakttxt"
+        android:layout_alignParentRight="true"
+        android:id="@+id/profil_kontakt"
+        android:text="061/884-720" android:layout_centerInParent="true" />
+
+    <TextView
+        android:paddingTop="50dp"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/profil_emailtxt"
+        android:textSize="17dp"
+        android:layout_height="wrap_content" android:id="@+id/profil_korisnikoimetxt"
+        android:text="Korisnicko ime"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="17dp"
+        android:layout_alignParentEnd="true"
+        android:ems="8"
+        android:id="@+id/profil_korisnickoime"
+        android:layout_alignBaseline="@+id/profil_korisnikoimetxt" android:text="test"
+        android:layout_alignParentRight="true"/>
+
+
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:textSize="17dp"
+        android:paddingTop="20dp"
+        android:layout_height="wrap_content" android:id="@+id/profil_lozinkatxt"  android:layout_below="@+id/profil_korisnikoimetxt"
+        android:text="Lozinka"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="8"
+        android:id="@+id/profil_lozinka"
+        android:textSize="17dp"
+        android:layout_alignBaseline="@+id/profil_lozinkatxt"
+        android:text="test"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignLeft="@+id/profil_korisnickoime"
+        android:layout_alignStart="@+id/profil_korisnickoime" />
+
+
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:text="Odustani"
+
+        android:id="@+id/btnOdustani"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="83dp" />
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignBaseline="@+id/btnOdustani"
+        android:layout_height="wrap_content" android:id="@+id/btnSacuvaj" android:text="Sacuvaj" />
+
+
+
+
+</RelativeLayout>

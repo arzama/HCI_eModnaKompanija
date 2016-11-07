@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    >
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:gravity="center_vertical"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/lvCijena_stavka"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/lvNazivProizvoda_stavka"
+            android:text="Naziv proizvoda"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/lvKolicina"
+            android:text="Kolicina"
+            android:layout_below="@+id/lvNazivProizvoda_stavka"
+            />
+    </RelativeLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:id="@+id/lvCijena_stavka"
+        android:layout_alignParentRight="true"
+        android:text="Cijena"
+        android:gravity="center_vertical"
+        >
+    </TextView>
+
+</RelativeLayout>

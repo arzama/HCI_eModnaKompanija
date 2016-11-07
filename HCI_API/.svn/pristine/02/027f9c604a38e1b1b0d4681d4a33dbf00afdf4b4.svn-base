@@ -1,0 +1,71 @@
+﻿
+using ModnaKompanija_API.DAL;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
+
+
+namespace ModnaKompanija_API.Controllers
+{
+    public class NarudzbeController : ApiController
+    {
+        public class NarudzbaVM
+        {
+            public List<narudzbe> _Narudzbe { get; set; }
+
+            public class narudzbe
+            {
+                public int Id { get; set; }
+                public int BrojNarudzbe { get; set; }
+                public int KorisnikId { get; set; }
+                public DateTime Datum { get; set; }
+                public Nullable<bool> Potvrdjena { get; set; }
+                public decimal Iznos { get; set; }
+                public List<stavkeNarudzbe> _Stavke { get; set; }
+            }
+
+            public class stavkeNarudzbe
+            {
+                public int Id { get; set; }
+                public int NarudzbaId { get; set; }
+                public int ProizvodId { get; set; }
+                public string NazivProizvoda { get; set; }
+                public string Opis { get; set; }
+                public decimal Cijena { get; set; }
+            }
+        }
+        Context ctx = new Context();
+
+        [HttpGet]
+        [Route("api/Narudzbe/getNarudzbe/{korisnikId}")]
+        public NarudzbaVM Get(int korisnikId)
+        {
+            NarudzbaVM narudzbe = ctx.Narudzba.Where(x => x.KorisnikId == korisnikId).Select(x => new NarudzbaVM
+            {
+                _Narudzbe = ctx.Narudzba.Select(n => new NarudzbaVM.narudzbe
+                {
+                    BrojNarudzbe = n.BrojNarudzbe,
+                    Datum = n.Datum,
+                    Id = n.Id,
+                    Iznos = n.Iznos,
+                    KorisnikId = n.KorisnikId,
+                    Potvrdjena = (bool)n.Potvrdjena,
+                    _Stavke = ctx.NarudzbaStavke.Where(s => s.NarudzbaId == n.Id).Select(s => new NarudzbaVM.stavkeNarudzbe
+                    {
+                        ProizvodId = s.ProizvodId,
+                        Cijena = ctx.Proizvodi.Where(p => p.Id == s.ProizvodId).Select(p => p.Cijena).FirstOrDefault(),
+                        Id = s.Id,
+                        Opis = ctx.Proizvodi.Where(p => p.Id == s.ProizvodId).Select(p => p.OpisProizvoda).FirstOrDefault(),
+                        NarudzbaId = s.NarudzbaId,
+                        NazivProizvoda = ctx.Proizvodi.Where(p => p.Id == s.ProizvodId).Select(p => p.NazivProizvoda).FirstOrDefault()
+                    }).ToList()
+                }).ToList()
+            }).FirstOrDefault();
+
+            return narudzbe;
+        }
+    }
+}

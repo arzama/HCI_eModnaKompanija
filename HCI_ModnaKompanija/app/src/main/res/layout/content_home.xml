@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/activity_home"
+    tools:context="com.modnakompanija.hci_modnakompanija.Area_Dizajner.HomeActivity">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Katalog kreacija"
+        android:layout_marginTop="40dp"
+        android:id="@+id/btnKatalog"
+
+        android:layout_below="@+id/bntKorisnickiProfil"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/bntKorisnickiProfil" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dodaj kreaciju"
+
+        android:layout_marginTop="8dp"
+        android:id="@+id/btnDodaj"
+        android:layout_below="@+id/btnKatalog"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Odjava"
+
+        android:layout_marginTop="30dp"
+        android:id="@+id/btnOdjava"
+        android:layout_below="@+id/btnNarudzba_home"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/btnAktivnaNarudzba_home" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Uredi profil"
+
+        android:id="@+id/bntKorisnickiProfil"
+        android:layout_marginTop="60dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/btnDodaj" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Korpa"
+
+        android:layout_marginTop="8dp"
+        android:id="@+id/btnAktivnaNarudzba_home"
+        android:layout_below="@+id/btnMaterijali"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/btnDodaj" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Pregled narudzbi"
+        android:layout_marginTop="8dp"
+        android:id="@+id/btnNarudzba_home"
+        android:layout_below="@+id/btnAktivnaNarudzba_home"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/btnDodaj" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+
+        android:text="Naruči materijal"
+        android:id="@+id/btnMaterijali"
+        android:layout_below="@+id/btnDodaj"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/btnDodaj" />
+</RelativeLayout>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.modnakompanija.hci_modnakompanija" >
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="Modna kompanija"
+        android:screenOrientation="portrait"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".PocetnaActivity"
+            android:label="PocetnsActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".MainActivity"
+            android:label="MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+
+        <activity
+            android:name=".Area_Autentifikacija.LoginActivity"
+            android:label="@string/title_activity_login"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".Area_Dizajner.HomeActivity"
+            android:label="HomeActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+
+        <activity
+            android:name=".Area_Dizajner.ProfilActivity"
+            android:label="ProfileActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+
+
+        <activity
+            android:name=".Area_Dizajner.DodajProizvodDialog"
+            android:label="DodajeActivity"
+            android:theme="@android:style/Theme.Dialog"  >
+        </activity>
+        <activity
+            android:name=".Area_Dizajner.DetaljiProizvodaDialog"
+            android:label="Detalji"
+            android:theme="@android:style/Theme.Dialog"  >
+        </activity>
+
+        <activity
+            android:name=".Area_Dizajner.MaterijalDialog"
+            android:label="Materijal"
+            android:theme="@android:style/Theme.Dialog"  >
+        </activity>
+        <activity
+            android:name=".Area_Dizajner.ListaNarudzbiActivity"
+            android:label="ListaNarudzbiActivity"
+           >
+        </activity>
+        <activity
+            android:name=".Area_Dizajner.KorpaActivity"
+            android:label="KorpaActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+
+        <activity
+            android:name=".Area_Dizajner.MaterijalActivity"
+            android:label="MaterijalActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".Area_Dizajner.KatalogActivity"
+            android:label="Katalog"
+      >
+        </activity>
+    </application>
+
+</manifest>

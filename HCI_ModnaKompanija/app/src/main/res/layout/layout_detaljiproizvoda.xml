@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" android:padding="10dp"  >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:paddingRight="7dp"
+            android:id="@+id/detalji_kolekcijatxt"
+            android:text="Kolekcija:"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+           android:paddingLeft="30dp"
+            android:textSize="18dp"
+            android:text="Jesen 2016"
+            android:textStyle="italic"
+            android:layout_toRightOf="@+id/detalji_kolekcijatxt"
+            android:layout_alignBaseline="@+id/detalji_kolekcijatxt"
+            android:id="@+id/detalji_kolekcija"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:paddingRight="7dp"
+            android:layout_below="@+id/detalji_kolekcijatxt"
+            android:id="@+id/detalji_bojatxt"
+            android:text="Boja:"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+
+            android:paddingLeft="30dp"
+            android:layout_alignLeft="@+id/detalji_kolekcija"
+            android:text="Bijela"
+            android:textStyle="italic"
+            android:layout_toRightOf="@+id/detalji_bojatxt"
+            android:layout_alignBaseline="@+id/detalji_bojatxt"
+            android:id="@+id/detalji_boja"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:paddingRight="7dp"
+            android:layout_below="@+id/detalji_bojatxt"
+            android:id="@+id/detalji_materijaltxt"
+            android:text="Materijal:"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:textSize="18dp"
+            android:text="Koza"
+         android:paddingLeft="30dp"
+            android:layout_alignLeft="@+id/detalji_kolekcija"
+            android:layout_toRightOf="@+id/detalji_materijaltxt"
+            android:layout_alignBaseline="@+id/detalji_materijaltxt"
+            android:id="@+id/detalji_materijal"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:paddingRight="7dp"
+            android:layout_below="@+id/detalji_materijaltxt"
+            android:id="@+id/detalji_datumtxt"
+            android:text="Datum:"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:paddingLeft="30dp"
+            android:layout_alignLeft="@+id/detalji_kolekcija"
+            android:text="15.5.2015"
+            android:textStyle="italic"
+            android:layout_toRightOf="@+id/detalji_datumtxt"
+            android:layout_alignBaseline="@+id/detalji_datumtxt"
+            android:id="@+id/detalji_datum"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="7dp"
+            android:id="@+id/detalji_opistxt"
+            android:layout_below="@+id/detalji_datumtxt"
+            android:textSize="16dp"
+            android:text="Opis:"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:text="Jakna"
+            android:paddingLeft="30dp"
+
+            android:layout_below="@+id/detalji_opistxt"
+            android:id="@+id/detalji_opis"
+            android:textStyle="italic" />
+
+
+    </RelativeLayout>
+
+
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+android:layout_gravity="center"
+        android:text="OK"
+        android:id="@+id/detalji_btnOk"
+
+        android:layout_centerHorizontal="true"
+
+        android:textSize="15dp"
+        />
+
+
+</LinearLayout>
+

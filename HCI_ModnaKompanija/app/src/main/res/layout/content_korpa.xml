@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"  android:padding="15dp"
+    android:paddingTop="40dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Korpa"
+        android:textSize="22dp"
+        android:paddingTop="80dp"
+        android:id="@+id/pomAktivna"
+        android:layout_centerHorizontal="true"/>
+
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:id="@+id/pomCrta"
+        android:background="#FF0000FF" android:layout_below="@+id/pomAktivna"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pomUkupan"
+        android:paddingTop="20dp"
+        android:layout_below="@+id/pomCrta"
+        android:textSize="18dp" android:text="Ukupuan iznos: "/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtUkupanIznos"
+        android:layout_alignBaseline="@+id/pomUkupan"
+        android:layout_toRightOf="@+id/pomUkupan"
+        android:text="500 KM"
+        android:textSize="23dp"/>
+
+    <Button
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:text="Otkazi"
+        android:layout_below="@+id/pomUkupan"
+        android:id="@+id/btnOtkazi"
+        android:background="#FD0B23" />
+    <Button
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:text="Potvrdi"
+        android:layout_below="@+id/pomUkupan"
+        android:id="@+id/btnPotvrdiNarudzbu"
+        android:layout_alignBaseline="@+id/btnOtkazi"
+        android:layout_alignParentRight="true"
+        android:background="#2ADA30" />
+
+
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="15dp"
+        android:id="@+id/lvKorpa"
+        android:layout_below="@+id/btnOtkazi"></ListView>
+
+
+
+</RelativeLayout>

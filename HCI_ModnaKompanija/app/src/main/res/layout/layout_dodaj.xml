@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:padding="10dp">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Naziv_dodaj"
+        android:paddingTop="30dp"
+        android:hint="Naziv" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Boja_dodaj"
+        android:paddingTop="30dp"
+        android:hint="Boja" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Materijal_dodaj"
+        android:paddingTop="30dp"
+        android:hint="Materijal" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Datum_dodaj"
+        android:paddingTop="30dp"
+        android:hint="Datum" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:id="@+id/Opis_dodaj"
+        android:hint="Opis" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:id="@+id/Kolekcija_dodaj"
+        android:hint="Kolekcija" />
+
+    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/radioGroup"
+        android:orientation="vertical">
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Man"
+            android:id="@+id/Man_dodaj"
+            android:onClick="onRadioButtonClicked"
+            />
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Woman"
+            android:id="@+id/Woman_dodaj"
+            android:onClick="onRadioButtonClicked"
+            />
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Kid"
+            android:id="@+id/Kid_dodaj"
+            android:onClick="onRadioButtonClicked"
+            />
+    </RadioGroup>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:text="Dodaj" android:id="@+id/btnDodaj" />
+
+
+</LinearLayout>
